@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -8,6 +9,18 @@ module.exports = merge(common, {
 		library: 'Client'
 	},
     devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
+            }
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin({
              // Simulate the removal of files
