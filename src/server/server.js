@@ -25,7 +25,7 @@ dotenv.config();
 // Aylien
 const AylienTextApi = require('aylien_textapi');
 
-const textApi = new AylienTextApi({
+const AylienTextApiKeys = new AylienTextApi({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
 });
