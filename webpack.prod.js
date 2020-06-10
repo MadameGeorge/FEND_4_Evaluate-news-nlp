@@ -1,9 +1,19 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
+    devtool: 'source-map',
+    optimization: {
+        minimizer: [
+            new OptimizeCssAssetsPlugin({}),
+            new TerserPlugin({})
+        ]
+    },
     module: {
         rules: [
             {
@@ -17,6 +27,6 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
     ]
 });
