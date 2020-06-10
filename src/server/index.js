@@ -11,12 +11,13 @@ const cors = require('cors');
 app.use(cors());
 
 // Initiate server
-app.use(express.static('src/client'));
+app.use(express.static('dist'));
 
 const server = app.listen(port, () => {
     console.log('Success. The server is running on localhost:', port);
 });
 
+// Get route
 app.get('/get', getFunction);
 function getFunction(request, response) {
     console.log(request);
