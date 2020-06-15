@@ -14,11 +14,21 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env']
                     }
-                },
+                }
             },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'images',
+                }
+            }
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: './src/client/html/index.html',
+            filename: './index.html'
+        })
     ]
 }

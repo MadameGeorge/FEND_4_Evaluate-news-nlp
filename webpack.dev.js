@@ -8,7 +8,7 @@ module.exports = merge(common, {
         libraryTarget: 'var',
 		library: 'Client'
 	},
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
