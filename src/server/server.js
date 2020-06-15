@@ -12,7 +12,7 @@ app.use(cors());
 
 // Initiate server
 app.use(express.static('dist'));
-const port = 8080;
+const port = 8081;
 
 const server = app.listen(port, () => {
     console.log('Success. The server is running on localhost:', port);
@@ -30,15 +30,6 @@ const AylienTextApiKeys = new AylienTextApi({
     application_key: process.env.API_KEY
 });
 
-
-// textapi.sentiment({
-//     'text': 'John is a very good football player!'
-//   }, function(error, response) {
-//     if (error === null) {
-//       console.log(response);
-//     }
-//   });
-
 // Get route
 app.get('/get', getFunction);
 function getFunction(request, response) {
@@ -49,3 +40,11 @@ function getFunction(request, response) {
 const database = {
     test: 'this is a test'
 };
+
+// Post route
+app.post('/post', postFunction);
+
+function postFunction(req, res) {
+    console.log(req);
+    request.push(database);
+}
