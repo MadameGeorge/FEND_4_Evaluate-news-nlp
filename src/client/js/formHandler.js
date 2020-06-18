@@ -3,7 +3,10 @@ export function handleSubmit(event) {
 
     // Validate form textarea input
     const textToAnalyse = document.getElementById('form__text-to-process').value;
-    Client.validateInput(textToAnalyse);
+    
+    // Client.validateInput(textToAnalyse);
+    if(Client.validateInput(textToAnalyse) === true) {
+        
         // Send text to analyse to Api
         Client.postRequest('http://localhost:8081/sentiment', { text: textToAnalyse })
     
@@ -15,4 +18,9 @@ export function handleSubmit(event) {
             document.getElementById('subjectivity').innerHTML = `Emotion: ${textSentiment.subjectivity}`;
             document.getElementById('subjectivity-confidence').innerHTML = `Subjectivity confidence: ${textSentiment.subjectivity_confidence}`;
         });
+
+    } else {
+        let results = document.getElementById('results__card');
+        results.textContent = 'Your text needs to be a pure text and longer than 1 character to analyse';
+    }
 };
