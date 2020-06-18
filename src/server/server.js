@@ -30,11 +30,22 @@ const AylienTextApiKeys = new AylienTextApi({
     application_key: process.env.API_KEY
 });
 
-// Get route
-app.get('/get', getFunction);
-function getFunction(request, response) {
-    console.log(request);
-    response.send(database);
+//Post route with Get Api sdk route
+app.post('/sentiment', getSentiment);
+
+function getSentiment(req, res) {
+    AylienTextApiKeys.sentiment(
+        {
+            text: req.body.text,
+            mode: 'Tweet' 
+        }, 
+        function(error, response) {
+        if (error === null) {
+            res.send(response); 
+            console.log('The server response is:' + response);
+            }
+        }
+    )
 };
 
 const database = {
@@ -47,4 +58,5 @@ app.post('/post', postFunction);
 function postFunction(req, res) {
     console.log(req);
     request.push(database);
+    console.log(database);
 }
