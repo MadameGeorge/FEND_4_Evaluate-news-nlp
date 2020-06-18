@@ -4,10 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
-    output: {
-        libraryTarget: 'var',
-		library: 'Client'
-	},
     devtool: 'inline-source-map',
     module: {
         rules: [

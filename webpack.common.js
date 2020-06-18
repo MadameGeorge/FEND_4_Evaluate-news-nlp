@@ -1,9 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const babelPolyfill = require("babel-polyfill");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/client/index.js',
+    output: {
+        libraryTarget: 'var',
+		library: 'Client'
+	},
     module: {
         rules: [
             {
@@ -12,8 +17,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
-                    }
+                        "presets": [
+                            ["@babel/preset-env", {"targets": { "node": "current" }}]
+                        ]
+                    },
                 }
             },
             {
