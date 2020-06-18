@@ -5,26 +5,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Text analyser</title>
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="../styles/styles.scss">
+		<link rel="stylesheet" type="text/css" href="../../../dist/main.css">
 	</head>
 	<body>
 		<h1 class="app__title">Text analyser</h1>
 		<p class="app__intro">Would you like to know what is a tone of you text? Enter or paste it below.</p>
-		<form class="app__form" onsubmit="return Client.handleSubmit(event)">
+		<form class="app__form">
 			<label for="form__text-to-process">Your text</label>
 			<textarea id="form__text-to-process" placeholder="Enter or paste text to analyse" aria-placeholder="Enter or paste text to process"></textarea>
-			<button id="form__submit" type="submit" value="submit" onsubmit="return Client.handleSubmit(event)" onclick="return Client.handleSubmit(event)">Analyse</button>
+			<button id="form__submit" type="submit" value="submit" onclick="return Client.handleSubmit(event)">Analyse</button>
 		</form>
-		<div class="results__card">
-			
+		<div id="results__card">
+			<div id="emotion"></div>
+			<div id="emotion-confidence"></div>
+			<div id="subjectivity"></div>
+			<div id="subjectivity-confidence"></div>
 		</div>
-
-		<!-- {
-			"polarity":"positive",
-			"subjectivity":"subjective",
-			"text":"John is a very good football player",
-			"polarity_confidence":0.9999936601153382,
-			"subjectivity_confidence":0.9963778207617525
-		  } -->
 	</body>
 </html>
