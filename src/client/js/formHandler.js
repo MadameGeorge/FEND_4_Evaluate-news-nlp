@@ -1,6 +1,6 @@
 export function handleSubmit(event) {
     event.preventDefault();
-    
+
     // Reset the alert
     const alert = document.getElementById('error__alert');
     if(!alert.classList.contains('hidden')) {
@@ -17,9 +17,10 @@ export function handleSubmit(event) {
         // Update UI
         .then( (textSentiment) => {
             console.log(textSentiment.polarity);
+            document.getElementById('results').innerHTML = 'Results:';
             document.getElementById('emotion').innerHTML = `Emotion: ${textSentiment.polarity}`;
             document.getElementById('emotion-confidence').innerHTML = `Emotion confidence: ${textSentiment.polarity_confidence}`;
-            document.getElementById('subjectivity').innerHTML = `Emotion: ${textSentiment.subjectivity}`;
+            document.getElementById('subjectivity').innerHTML = `Subjectivity: ${textSentiment.subjectivity}`;
             document.getElementById('subjectivity-confidence').innerHTML = `Subjectivity confidence: ${textSentiment.subjectivity_confidence}`;
         });
 
