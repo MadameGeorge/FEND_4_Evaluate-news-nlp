@@ -1,22 +1,22 @@
 export function handleSubmit(event) {
     event.preventDefault();
 
-    // Reset the alert
+    // Reset the alert and old results
     const alert = document.getElementById('error__alert');
     if(!alert.classList.contains('hidden')) {
         alert.classList.add('hidden');
     };
 
     // Validate form textarea input
-    const textToAnalyse = document.getElementById('form__text-to-process').value;
-    if(Client.validateInput(textToAnalyse) === true) {
-        
+    let textToAnalyse = document.getElementById('form__text-to-process').value;
+    if(Client.validateInput(textToAnalyse)) {
+
         // Send text to analyse to Api
         Client.postRequest('http://localhost:8081/sentiment', { text: textToAnalyse })
     
         // Update UI
         .then( (textSentiment) => {
-            console.log(textSentiment.polarity);
+            document.querySelector('.results__card').classList.remove('hidden');
             document.getElementById('results').innerHTML = 'Results:';
             document.getElementById('emotion').innerHTML = `Emotion: ${textSentiment.polarity}`;
             document.getElementById('emotion-confidence').innerHTML = `Emotion confidence: ${textSentiment.polarity_confidence}`;
@@ -26,9 +26,8 @@ export function handleSubmit(event) {
 
     // Display alert 
     } else {
-        const alert = document.getElementById('error__alert');
-        console.log(alert);
+        document.querySelector('.results__card').classList.add('hidden');
         alert.classList.remove('hidden');
         alert.innerHTML = 'Your text needs to be a pure text and longer than 1 character to analyse';
-    }
+    };
 };

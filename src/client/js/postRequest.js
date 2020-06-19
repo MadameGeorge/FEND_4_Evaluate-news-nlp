@@ -8,7 +8,6 @@ export async function postRequest( url ='', database = {}) {
     })
     try {
         const textSentiment = await response.json();
-        console.log(textSentiment);
         return textSentiment;
     }
     catch(error) {
