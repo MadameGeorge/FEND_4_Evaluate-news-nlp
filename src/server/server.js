@@ -47,16 +47,3 @@ function getSentiment(req, res) {
         }
     )
 };
-
-const database = {
-    test: 'this is a test'
-};
-
-// Post route
-app.post('/post', postFunction);
-
-function postFunction(req, res) {
-    console.log(req);
-    request.push(database);
-    console.log(database);
-}

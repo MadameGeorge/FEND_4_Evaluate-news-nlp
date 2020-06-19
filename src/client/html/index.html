@@ -13,6 +13,7 @@
 		<form class="app__form">
 			<label for="form__text-to-process">Your text</label>
 			<textarea id="form__text-to-process" placeholder="Enter or paste text to analyse" aria-placeholder="Enter or paste text to process"></textarea>
+			<p id="error__alert" class="hidden"></p>
 			<button id="form__submit" type="submit" value="submit" onclick="return Client.handleSubmit(event)">Analyse</button>
 		</form>
 		<div id="results__card">

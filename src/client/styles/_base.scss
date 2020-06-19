@@ -19,10 +19,6 @@ h1 {
     margin-bottom: 2rem;
 }
 
-p {
-    margin-bottom: 4rem;
-}
-
 figcaption {
     font-size: 12px;
     text-align: center;
@@ -37,7 +33,6 @@ label {
 }
 
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
 textarea {
     width: 100%;
     height: 200px;
@@ -46,7 +41,6 @@ textarea {
     border: none;
     padding: 1rem;
     border-radius: 5px;
-    margin-bottom: 1rem;
     resize: none;
     box-shadow: 0 5px 15px rgba(155, 170, 172, 0.8);
 }
@@ -61,7 +55,6 @@ button {
     letter-spacing: 2px;
     border: 0;
     padding: 1rem;
-    margin-bottom: 1rem;
     position: relative;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(155, 170, 172, 0.5);
@@ -96,30 +89,20 @@ button {
     }
 }
 
-/* Reset style for HTML element on active to have no border */
-input:focus,
-select:focus,
-textarea:focus,
-fieldset,
-textarea,
-button,
-button:focus {
-    outline: none;
+form {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+
+    #error__alert {
+        color: rgb(189, 33, 33);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background-color: rgba(189, 33, 33, 0.2);
+    }
 }
 
-fieldset {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    min-width: 0;
-}
-
-/* Style for Placeholder Text*/
-::placeholder, /* Firefox, Chrome, Opera */ 
-:-ms-input-placeholder, /* Internet Explorer 10-11 */ 
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: rgb(134, 148, 153); 
-    font-family: 'Oswald', sans-serif;
+.hidden {
+    display: none;
 }
 
 /* Responsive behaviours */
