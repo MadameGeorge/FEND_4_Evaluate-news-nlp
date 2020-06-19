@@ -4,11 +4,11 @@ var fetch = require('node-fetch-polyfill');
 
 
 describe('Test post route', () => {
-    test('Check if postRequest function is defined', () => {
+    test('Checks if postRequest function is defined', () => {
         expect(postRequest()).toBeDefined();
     });
 
-    test('Check if the outcome is correct', async () => {
+    test('Checks if the outcome is correct', async () => {
         const input = {
             text: "This is amazing"
         };
