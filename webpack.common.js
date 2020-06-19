@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const babelPolyfill = require("babel-polyfill");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: ['babel-polyfill', './src/client/index.js'],
     output: {
         libraryTarget: 'var',
 		library: 'Client'
@@ -36,6 +37,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/client/html/index.html',
             filename: './index.html'
-        })
+        }),
+        new WorkboxWebpackPlugin.GenerateSW(),
     ]
 }

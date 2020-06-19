@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<h1 class="app__title">Text analyser</h1>
-		<p class="app__intro">Would you like to know what is a tone of you text? Enter or paste it below.</p>
+		<p class="app__intro">Is your text positive or negative? Subjective or objective? Enter or paste it below to find out.</p>
 		<form class="app__form">
 			<label for="form__text-to-process">Your text</label>
 			<textarea id="form__text-to-process" placeholder="Enter or paste text to analyse" aria-placeholder="Enter or paste text to process"></textarea>
@@ -17,10 +17,20 @@
 			<button id="form__submit" type="submit" value="submit" onclick="return Client.handleSubmit(event)">Analyse</button>
 		</form>
 		<div id="results__card">
+			<h2 id="results"></h2>
 			<div id="emotion"></div>
 			<div id="emotion-confidence"></div>
 			<div id="subjectivity"></div>
 			<div id="subjectivity-confidence"></div>
 		</div>
+		<script>
+			// Check that service workers are supported
+			if ('serviceWorker' in navigator) {
+				// Use the window load event to keep the page load performant
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/service-worker.js');
+				});
+			}
+		</script>
 	</body>
 </html>
