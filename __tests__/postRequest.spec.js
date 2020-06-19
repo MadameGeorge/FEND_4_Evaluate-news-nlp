@@ -1,4 +1,7 @@
 import { postRequest } from '../src/client/js/postRequest';
+import "babel-polyfill";
+var fetch = require('node-fetch-polyfill');
+
 
 describe('Test post route', () => {
     test('Check if postRequest function is defined', () => {
@@ -9,8 +12,9 @@ describe('Test post route', () => {
         const input = {
             text: "This is amazing"
         };
+        fetch = jest.fn(() => Promise.resolve());
         expect.assertions(1);
-        const data = await fetch('http://localhost:8081/sentiment', input);
+        const data = fetch('http://localhost:8081/sentiment', input);
         expect(data.polarity).toContain('positive');
     });
 });

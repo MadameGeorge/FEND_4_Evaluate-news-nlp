@@ -1,4 +1,6 @@
 import { validateInput } from '../src/client/js/validateInput';
+import "babel-polyfill";
+var fetch = require('node-fetch-polyfill');
 
 describe('Test to check if function correctly recognize string and length', () => {
     test('is this a string', () => {
