@@ -7,15 +7,13 @@ import './styles/styles.scss';
 
 // Js
 import { handleSubmit } from './js/formHandler';
-import { postRequest } from './js/postRequest';
+import { postRequest } from './js/formHandler';
 import { validateInput } from './js/validateInput';
-// import { throwError } from './js/validateInput';
 
 
 // Export 
 export {
     handleSubmit,
     postRequest,
-    validateInput,
-    // throwError
+    validateInput
 };
