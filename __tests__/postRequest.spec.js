@@ -8,13 +8,14 @@ describe('Test post route', () => {
         expect(postRequest()).toBeDefined();
     });
 
-    test('Checks if the outcome is correct', async () => {
+    test('Checks if the outcome is correct', () => {
         const input = {
             text: "This is amazing"
         };
-        fetch = jest.fn(() => Promise.resolve());
-        expect.assertions(1);
-        const data = fetch('http://localhost:8081/sentiment', input);
-        expect(data.polarity).toContain('positive');
+        postRequest(input)
+        .then(function(res) {
+            // expect.assertions(1);
+            expect(res.polarity).toContain('negative');
+        })
     });
 });

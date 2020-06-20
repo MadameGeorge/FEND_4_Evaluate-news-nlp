@@ -1,16 +1,21 @@
-export async function postRequest( url ='', database = {}) {
-    const response = await fetch(url, {
+export function postRequest(userInput){
+    const fetch = require("node-fetch")
+    return fetch('http://localhost:8081/sentiment', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(database)
+        body: JSON.stringify(userInput)
     })
-    try {
-        const textSentiment = await response.json();
-        return textSentiment;
-    }
-    catch(error) {
-        console.log('Something went wrong with API request:', error);
-    }
-};
+    .then( res => res.json() )
+    .then( (res) => {
+        document.querySelector('.results__card').classList.remove('hidden');
+        document.getElementById('results').innerHTML = 'Results:';
+        document.getElementById('emotion').innerHTML = `Emotion: ${res.polarity}`;
+        document.getElementById('emotion-confidence').innerHTML = `Emotion confidence: ${res.polarity_confidence}`;
+        document.getElementById('subjectivity').innerHTML = `Subjectivity: ${res.subjectivity}`;
+        document.getElementById('subjectivity-confidence').innerHTML = `Subjectivity confidence: ${res.subjectivity_confidence}`;
+
+        return res;
+    });
+}

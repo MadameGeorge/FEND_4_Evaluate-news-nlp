@@ -45,5 +45,5 @@ function getSentiment(req, res) {
             console.log('The server response is:' + response);
             }
         }
-    )
+    );
 };
