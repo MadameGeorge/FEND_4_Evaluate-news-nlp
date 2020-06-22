@@ -7,9 +7,8 @@ import './styles/styles.scss';
 
 // Js
 import { handleSubmit } from './js/formHandler';
-import { postRequest } from './js/formHandler';
+// import { postRequest } from './js/formHandler';
 import { validateInput } from './js/validateInput';
-
 
 // Export 
 export {
