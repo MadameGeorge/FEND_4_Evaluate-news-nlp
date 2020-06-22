@@ -5,7 +5,7 @@ This is a 4th project made for Udacity Front End Web Developer Nanodegree I took
 
 ## Config
 - To run this application you need your own API key from [here](https://developer.aylien.com/signup) 
-- Once you have it, create `.env` file and add you key there (see `.env.sample` file to see how to add a key)
+- Once you have it, create `.env` file and add you key there (see `.env_sample` file to see how to add a key)
 
 ## Installation
 1. Install all dependencies from 'package.json' by running `npm install` in command line
