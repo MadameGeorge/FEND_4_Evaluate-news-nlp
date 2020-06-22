@@ -16,5 +16,5 @@ describe('Test to check if function correctly recognize string and length', () =
         expect(validateInput(input1)).toBe(output1);
         expect(validateInput(input2)).toBe(output2);
         expect(validateInput(input3)).toBe(output3);
-    })
+    });
 });

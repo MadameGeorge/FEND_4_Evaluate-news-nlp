@@ -12,10 +12,13 @@ describe('Test post route', () => {
         const input = {
             text: "This is amazing"
         };
+        const output = {
+            polarity: 'positive'
+        };
         postRequest(input)
         .then(function(res) {
-            // expect.assertions(1);
-            expect(res.polarity).toContain('negative');
-        })
+            expect.assertions(1);
+            expect(res).toContain(output);
+        });
     });
 });
