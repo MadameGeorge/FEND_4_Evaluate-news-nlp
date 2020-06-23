@@ -15,7 +15,11 @@ export function handleSubmit(event) {
         };
 
         // Make a api call to get sentiment
-        Client.postRequest(validInput)
+        Client.postRequest('http://localhost:8081/sentiment', validInput)
+        // Update UI
+        .then( (res) => {
+            Client.updateUI(sentiment);
+        });
 
     } else {     
         // Display alert   
