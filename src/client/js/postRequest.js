@@ -1,5 +1,5 @@
 export function postRequest(userInput){
-    const fetch = require("node-fetch")
+    // const fetch = require("node-fetch")
     return fetch('http://localhost:8081/sentiment', {
         method: 'POST',
         headers: {
