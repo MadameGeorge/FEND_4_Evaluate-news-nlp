@@ -1,21 +1,19 @@
 import { postRequest } from '../src/client/js/postRequest';
 import "babel-polyfill";
-var fetch = require('node-fetch-polyfill');
-
+const fetchMock = require('fetch-mock');
 
 describe('Test post route', () => {
     test('Checks if postRequest function is defined', () => {
         expect(postRequest()).toBeDefined();
     });
 
-    test('Checks if the outcome is correct', () => {
-        const input = {
-            text: "This is amazing"
-        };
-        postRequest(input)
-        .then(function(res) {
-            expect.assertions(1);
-            expect(res).toHaveProperty('positive');
-        });
+    test('Checks if postRequest  ', async () => {
+        fetchMock.post('http://fake.com', { polarity: "positive" });
+        const response = await postRequest('http://fake.com');
+
+        expect.assertions(1);
+        expect(response.polarity).toEqual('positive');
     });
 });
+
+
