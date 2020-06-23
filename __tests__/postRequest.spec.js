@@ -1,5 +1,4 @@
 import { postRequest } from '../src/client/js/postRequest';
-import "babel-polyfill";
 const fetchMock = require('fetch-mock');
 
 describe('Test post route', () => {

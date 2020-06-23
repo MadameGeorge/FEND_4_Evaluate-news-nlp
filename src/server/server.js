@@ -22,6 +22,11 @@ const server = app.listen(port, () => {
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Test
+app.get('/test', function (req, res) {
+    res.send(mockAPIResponse);
+});
+
 // Aylien
 const AylienTextApi = require('aylien_textapi');
 
