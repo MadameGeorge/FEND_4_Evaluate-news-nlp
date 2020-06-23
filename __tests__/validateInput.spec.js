@@ -5,16 +5,19 @@ describe('Test to check if function correctly recognize string and length', () =
         const input = "test";
         expect(typeof input).toBe("string");
     });
-    test('Checks if string is longer than 1 character', () => {
-        const input1 = "test";
-        const input2 = "t";
-        const input3 = "123";
+    test('Checks if string properly validated', () => {
+        const validText = "test";
+        const oneLetter = "t";
+        const numbers = "123";
+        const urlWww = "www.google.com";
+        const urlHttp = "http://www.google.com";
         const output1 = true;
         const output2 = false;
-        const output3 = false;
 
-        expect(validateInput(input1)).toBe(output1);
-        expect(validateInput(input2)).toBe(output2);
-        expect(validateInput(input3)).toBe(output3);
+        expect(validateInput(validText)).toBe(output1);
+        expect(validateInput(oneLetter)).toBe(output2);
+        expect(validateInput(numbers)).toBe(output2);
+        expect(validateInput(urlWww)).toBe(output2);
+        expect(validateInput(urlHttp)).toBe(output2);
     });
 });
