@@ -14,5 +14,3 @@ describe('Test post route', () => {
         expect(response.polarity).toEqual('positive');
     });
 });
-
-
